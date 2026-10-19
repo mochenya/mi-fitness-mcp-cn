@@ -2,10 +2,10 @@
 
 import json
 from pathlib import Path
-from typing import Literal
+from typing import Any, Literal
 
 from platformdirs import user_config_dir, user_data_dir, user_log_dir
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 
 def _default_database_path() -> Path:
@@ -35,6 +35,20 @@ class Config(BaseModel):
 
     model_config = ConfigDict(arbitrary_types_allowed=True)
 
+    @field_validator("database_path", mode="before")
+    @classmethod
+    def default_database_path_if_none(cls, value: Any) -> Any:
+        if value is None:
+            return _default_database_path()
+        return value
+
+    @field_validator("logs_path", mode="before")
+    @classmethod
+    def default_logs_path_if_none(cls, value: Any) -> Any:
+        if value is None:
+            return _default_logs_path()
+        return value
+
 
 def get_config_dir() -> Path:
     config_dir = Path(user_config_dir("mi-fitness"))
@@ -56,12 +70,7 @@ def load_config() -> Config:
     with open(config_path, encoding="utf-8") as f:
         data = json.load(f)
 
-    if "database_path" in data and isinstance(data["database_path"], str):
-        data["database_path"] = Path(data["database_path"])
-    if "logs_path" in data and isinstance(data["logs_path"], str):
-        data["logs_path"] = Path(data["logs_path"])
-
-    return Config(**data)
+    return Config.model_validate(data)
 
 
 def save_config(config: Config) -> None:
