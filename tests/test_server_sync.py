@@ -2,7 +2,7 @@ import asyncio
 
 import pytest
 
-from mi_fitness_mcp import server
+from mi_fitness import server
 
 
 @pytest.mark.asyncio

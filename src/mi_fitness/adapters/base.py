@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 from collections.abc import AsyncIterator, Coroutine, Iterator
 from typing import Any, Union
 
-from mi_fitness_mcp.models import (
+from mi_fitness.models import (
     AbnormalHeartBeatEvent,
     BodyMeasurement,
     DailyActivity,

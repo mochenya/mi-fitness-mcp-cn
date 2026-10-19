@@ -9,11 +9,11 @@ from pydantic import BaseModel, ConfigDict, Field
 
 
 def _default_database_path() -> Path:
-    return Path(user_data_dir("mi-fitness-mcp")) / "mi_fitness.db"
+    return Path(user_data_dir("mi-fitness")) / "mi_fitness.db"
 
 
 def _default_logs_path() -> Path:
-    return Path(user_log_dir("mi-fitness-mcp")) / "mi_fitness.log"
+    return Path(user_log_dir("mi-fitness")) / "mi_fitness.log"
 
 
 class Config(BaseModel):
@@ -37,7 +37,7 @@ class Config(BaseModel):
 
 
 def get_config_dir() -> Path:
-    config_dir = Path(user_config_dir("mi-fitness-mcp"))
+    config_dir = Path(user_config_dir("mi-fitness"))
     config_dir.mkdir(parents=True, exist_ok=True)
     return config_dir
 

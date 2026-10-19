@@ -7,7 +7,7 @@ import keyring
 logger = logging.getLogger(__name__)
 
 
-SERVICE_NAME = "mi-fitness-mcp"
+SERVICE_NAME = "mi-fitness"
 ACCOUNT_NAME = "mi_fitness_auth"
 
 

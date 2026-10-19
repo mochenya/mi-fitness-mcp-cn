@@ -1,6 +1,6 @@
 import pytest
 
-from mi_fitness_mcp.services.sync_service import SyncService
+from mi_fitness.services.sync_service import SyncService
 
 
 class FakeAdapter:

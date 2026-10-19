@@ -4,14 +4,14 @@ import argparse
 import asyncio
 import sys
 
-from mi_fitness_mcp.adapters.mi_fitness_cloud import MiFitnessCloudAdapter
-from mi_fitness_mcp.auth import load_mi_fitness_token, save_mi_fitness_token
-from mi_fitness_mcp.config import Config, get_config_path, load_config, save_config
-from mi_fitness_mcp.server import main as server_main
-from mi_fitness_mcp.services.sync_service import SyncService
-from mi_fitness_mcp.storage import Database
+from mi_fitness.adapters.mi_fitness_cloud import MiFitnessCloudAdapter
+from mi_fitness.auth import load_mi_fitness_token, save_mi_fitness_token
+from mi_fitness.config import Config, get_config_path, load_config, save_config
+from mi_fitness.server import main as server_main
+from mi_fitness.services.sync_service import SyncService
+from mi_fitness.storage import Database
 
-PROGRAM_NAME = "mi-fitness-mcp"
+PROGRAM_NAME = "mi-fitness"
 
 
 async def _check_adapter_health(adapter) -> tuple[bool, list[str], str | None]:

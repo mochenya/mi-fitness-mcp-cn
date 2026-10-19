@@ -14,8 +14,8 @@ from urllib.parse import urlencode
 
 import httpx
 
-from mi_fitness_mcp.adapters.base import DataAdapter
-from mi_fitness_mcp.models import (
+from mi_fitness.adapters.base import DataAdapter
+from mi_fitness.models import (
     AbnormalHeartBeatEvent,
     BodyMeasurement,
     DailyActivity,

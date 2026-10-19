@@ -4,7 +4,7 @@ from contextlib import suppress
 from datetime import datetime, timedelta
 from typing import Any
 
-from mi_fitness_mcp.storage import Database
+from mi_fitness.storage import Database
 
 
 class QueryService:

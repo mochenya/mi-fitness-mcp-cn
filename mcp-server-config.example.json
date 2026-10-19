@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "mi-fitness": {
-      "command": "mi-fitness-mcp",
+      "command": "mi-fitness",
       "args": ["serve"]
     }
   }

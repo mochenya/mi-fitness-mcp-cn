@@ -1,8 +1,8 @@
 from datetime import datetime
 
-from mi_fitness_mcp.models import BodyMeasurement, DailyActivity, HeartRateSample
-from mi_fitness_mcp.services.query_service import QueryService
-from mi_fitness_mcp.storage import Database
+from mi_fitness.models import BodyMeasurement, DailyActivity, HeartRateSample
+from mi_fitness.services.query_service import QueryService
+from mi_fitness.storage import Database
 
 
 def test_storage_and_query_roundtrip(tmp_path):

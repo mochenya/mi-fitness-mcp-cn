@@ -1,6 +1,6 @@
 import pytest
 
-from mi_fitness_mcp.adapters.mi_fitness_cloud import (
+from mi_fitness.adapters.mi_fitness_cloud import (
     MiFitnessCloudAdapter,
     _is_authentication_error,
 )

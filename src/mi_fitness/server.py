@@ -11,17 +11,17 @@ from mcp.server import Server
 from mcp.server.stdio import stdio_server
 from mcp.types import TextContent, Tool
 
-from mi_fitness_mcp.adapters.mi_fitness_cloud import MiFitnessCloudAdapter
-from mi_fitness_mcp.auth import load_mi_fitness_token
-from mi_fitness_mcp.config import load_config
-from mi_fitness_mcp.models import ConnectionStatus, QueryResponse
-from mi_fitness_mcp.services.query_service import QueryService
-from mi_fitness_mcp.services.sync_service import SyncService
-from mi_fitness_mcp.storage import Database
+from mi_fitness.adapters.mi_fitness_cloud import MiFitnessCloudAdapter
+from mi_fitness.auth import load_mi_fitness_token
+from mi_fitness.config import load_config
+from mi_fitness.models import ConnectionStatus, QueryResponse
+from mi_fitness.services.query_service import QueryService
+from mi_fitness.services.sync_service import SyncService
+from mi_fitness.storage import Database
 
 logger = logging.getLogger(__name__)
 
-app = Server("mi-fitness-mcp")
+app = Server("mi-fitness")
 
 config = None
 db = None

@@ -6,8 +6,8 @@ from collections.abc import AsyncIterator
 from datetime import datetime, timedelta
 from typing import Any
 
-from mi_fitness_mcp.adapters.base import DataAdapter
-from mi_fitness_mcp.storage import Database
+from mi_fitness.adapters.base import DataAdapter
+from mi_fitness.storage import Database
 
 logger = logging.getLogger(__name__)
 

@@ -101,7 +101,7 @@ pip install keyrings.alt
 中国区账号建议：
 
 ```bash
-mi-fitness-mcp setup \
+mi-fitness setup \
   --mode mi_fitness_cloud \
   --user-id "<userId>" \
   --pass-token "<passToken>" \
@@ -111,7 +111,7 @@ mi-fitness-mcp setup \
 检查连接：
 
 ```bash
-mi-fitness-mcp doctor
+mi-fitness doctor
 ```
 
 ## 同步数据
@@ -119,23 +119,23 @@ mi-fitness-mcp doctor
 同步全部可探测数据：
 
 ```bash
-mi-fitness-mcp sync --start-date 2026-01-01 --end-date 2026-06-21
+mi-fitness sync --start-date 2026-01-01 --end-date 2026-06-21
 ```
 
 按类型同步：
 
 ```bash
-mi-fitness-mcp sync --type daily_activity --start-date 2026-01-01 --end-date 2026-06-21
-mi-fitness-mcp sync --type heart_rate --start-date 2026-01-01 --end-date 2026-06-21
-mi-fitness-mcp sync --type sleep --start-date 2026-01-01 --end-date 2026-06-21
-mi-fitness-mcp sync --type workouts --start-date 2026-01-01 --end-date 2026-06-21
-mi-fitness-mcp sync --type body_measurements --start-date 2026-01-01 --end-date 2026-06-21
+mi-fitness sync --type daily_activity --start-date 2026-01-01 --end-date 2026-06-21
+mi-fitness sync --type heart_rate --start-date 2026-01-01 --end-date 2026-06-21
+mi-fitness sync --type sleep --start-date 2026-01-01 --end-date 2026-06-21
+mi-fitness sync --type workouts --start-date 2026-01-01 --end-date 2026-06-21
+mi-fitness sync --type body_measurements --start-date 2026-01-01 --end-date 2026-06-21
 ```
 
 ## 启动 MCP Server
 
 ```bash
-mi-fitness-mcp serve
+mi-fitness serve
 ```
 
 Claude Desktop 配置示例：
@@ -144,7 +144,7 @@ Claude Desktop 配置示例：
 {
   "mcpServers": {
     "mi-fitness": {
-      "command": "mi-fitness-mcp",
+      "command": "mi-fitness",
       "args": ["serve"]
     }
   }
@@ -169,7 +169,7 @@ Claude Desktop 配置示例：
 默认位置：
 
 ```text
-~/.local/share/mi-fitness-mcp/mi_fitness.db
+~/.local/share/mi-fitness/mi_fitness.db
 ```
 
 主要表：
@@ -207,9 +207,9 @@ sync_state
 示例：
 
 ```bash
-mi-fitness-mcp sync --type spo2 --start-date 2026-06-01 --end-date 2026-06-22
-mi-fitness-mcp sync --type stress --start-date 2026-06-01 --end-date 2026-06-22
-mi-fitness-mcp sync --type abnormal_heart_beat --start-date 2026-06-01 --end-date 2026-06-22
+mi-fitness sync --type spo2 --start-date 2026-06-01 --end-date 2026-06-22
+mi-fitness sync --type stress --start-date 2026-06-01 --end-date 2026-06-22
+mi-fitness sync --type abnormal_heart_beat --start-date 2026-06-01 --end-date 2026-06-22
 ```
 
 ## License

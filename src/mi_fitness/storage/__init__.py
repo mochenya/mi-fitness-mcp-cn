@@ -7,7 +7,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-from mi_fitness_mcp.models import (
+from mi_fitness.models import (
     AbnormalHeartBeatEvent,
     BodyMeasurement,
     DailyActivity,
