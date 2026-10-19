@@ -23,7 +23,7 @@ async def _check_adapter_health(adapter) -> tuple[bool, list[str], str | None]:
     return connected, data_types, region
 
 
-def cmd_setup(args):
+def cmd_setup(args: argparse.Namespace):
     if args.mode == "mi_fitness_cloud" and args.user_id and args.pass_token:
         save_mi_fitness_token(args.user_id, args.pass_token)
         config = Config(mode="mi_fitness_cloud", region=args.region or "cn")
@@ -48,7 +48,7 @@ def cmd_setup(args):
     print("✅ Mi Fitness 配置已保存！")
 
 
-def cmd_doctor(args):
+def cmd_doctor(args: argparse.Namespace):
     print(f"{PROGRAM_NAME} - 诊断")
     print("=" * 50)
     print()
@@ -93,7 +93,7 @@ def cmd_doctor(args):
         sys.exit(1)
 
 
-async def cmd_sync_async(args):
+async def cmd_sync_async(args: argparse.Namespace):
     print(f"{PROGRAM_NAME} - 同步")
     print("=" * 50)
     print()
@@ -140,20 +140,21 @@ async def cmd_sync_async(args):
     print("同步完成！")
 
 
-def cmd_sync(args):
+def cmd_sync(args: argparse.Namespace):
     asyncio.run(cmd_sync_async(args))
 
-
-def main():
+def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog=PROGRAM_NAME, description="小米运动健康数据 MCP Server")
+
     subparsers = parser.add_subparsers(dest="command", help="可用命令")
+
     subparsers.add_parser("serve", help="运行 MCP Server")
 
     setup_parser = subparsers.add_parser("setup", help="配置服务")
     setup_parser.add_argument("--mode", choices=["mi_fitness_cloud"], help="配置模式")
     setup_parser.add_argument("--user-id", help="Mi Fitness user ID")
     setup_parser.add_argument("--pass-token", help="Mi Fitness passToken")
-    setup_parser.add_argument("--region", help="云端区域")
+    setup_parser.add_argument("--region", type=str, default="cn", help="云端区域")
 
     subparsers.add_parser("doctor", help="检查配置并诊断问题")
 
@@ -174,6 +175,11 @@ def main():
     )
     sync_parser.add_argument("--start-date", help="开始日期（YYYY-MM-DD）")
     sync_parser.add_argument("--end-date", help="结束日期（YYYY-MM-DD）")
+
+    return parser
+
+def main():
+    parser = build_parser()
 
     args = parser.parse_args()
     if args.command == "serve" or args.command is None:
