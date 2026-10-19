@@ -44,3 +44,7 @@ config.json
 
 # Dependency lock file
 uv.lock
+
+# Agents
+.agents/
+skills-lock.json
