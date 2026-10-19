@@ -41,3 +41,6 @@ config.json
 *.db-*
 *.zip
 .backup/
+
+# Dependency lock file
+uv.lock
