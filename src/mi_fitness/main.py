@@ -4,6 +4,7 @@ import argparse
 import asyncio
 import sys
 
+from mi_fitness.__init__ import __app_name__
 from mi_fitness.adapters.mi_fitness_cloud import MiFitnessCloudAdapter
 from mi_fitness.auth import load_mi_fitness_token, save_mi_fitness_token
 from mi_fitness.config import Config, get_config_path, load_config, save_config
@@ -11,7 +12,7 @@ from mi_fitness.server import main as server_main
 from mi_fitness.services.sync_service import SyncService
 from mi_fitness.storage import Database
 
-PROGRAM_NAME = "mi-fitness"
+PROGRAM_NAME = __app_name__
 
 
 async def _check_adapter_health(adapter) -> tuple[bool, list[str], str | None]:
@@ -143,6 +144,7 @@ async def cmd_sync_async(args: argparse.Namespace):
 def cmd_sync(args: argparse.Namespace):
     asyncio.run(cmd_sync_async(args))
 
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog=PROGRAM_NAME, description="小米运动健康数据 MCP Server")
 
@@ -177,6 +179,7 @@ def build_parser() -> argparse.ArgumentParser:
     sync_parser.add_argument("--end-date", help="结束日期（YYYY-MM-DD）")
 
     return parser
+
 
 def main():
     parser = build_parser()
