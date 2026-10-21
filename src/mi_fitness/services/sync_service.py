@@ -136,7 +136,9 @@ class SyncService:
                     }
                 )
                 return {
-                    "status": "partial" if any(c.get("status") == "ok" for c in chunks) else "error",
+                    "status": "partial"
+                    if any(c.get("status") == "ok" for c in chunks)
+                    else "error",
                     "data_type": data_type,
                     **totals,
                     "start_date": start_date,

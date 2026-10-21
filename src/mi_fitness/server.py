@@ -335,7 +335,8 @@ async def _background_sync(sync_id: str, arguments: dict) -> None:
     global sync_active
     try:
         sync_tasks[sync_id].update(
-            status="running", started_at=datetime.now(UTC).isoformat()
+            status="running",
+            started_at=datetime.now(UTC).isoformat(),
         )
         sync_tasks[sync_id] = await _run_sync_data(arguments, sync_id)
     except asyncio.CancelledError:
